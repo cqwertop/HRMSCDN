@@ -2,13 +2,10 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  background: #0f2027;
   color: #fff;
+  overflow-x: hidden;
 }
-
-a { text-decoration: none; }
 
 /* --- NAVIGATION --- */
 nav {
@@ -24,23 +21,19 @@ nav {
 nav a {
   color: #00ffe7;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-nav a:hover { color: #fff; }
-
-/* --- ANIMATIONS --- */
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+nav a:hover { 
+  color: #fff; 
+  text-shadow: 0 0 10px #00ffe7; 
 }
-@keyframes fadeIn { to { opacity: 1; } }
-@keyframes slideIn { to { opacity:1; transform: translateY(0); } }
 
 /* --- HEADER --- */
 header {
   text-align: center;
   padding: 150px 20px;
+  position: relative;
+  z-index: 1;
 }
 h1 {
   font-size: 3em;
@@ -78,7 +71,7 @@ section {
   border-radius: 10px;
   opacity: 0;
   transform: translateY(50px);
-  animation: slideIn 1s ease forwards;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 /* --- PROJECT CARDS --- */
@@ -98,8 +91,8 @@ section {
   transform: translateY(-10px);
   box-shadow: 0 0 20px #00ffe7;
 }
-.card h3 { color: #00ffe7; margin-top:0; }
-.card p { line-height: 1.4; }
+.card h3 { color:#00ffe7; margin-top:0; }
+.card p { line-height:1.4; }
 
 /* --- CONTACT FORM --- */
 form {
@@ -126,7 +119,6 @@ input[type="submit"] {
   font-weight: 600;
   cursor: pointer;
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 input[type="submit"]:hover {
   transform: scale(1.05);
@@ -143,3 +135,41 @@ input[type="submit"]:hover {
   transition: opacity 0.5s ease;
 }
 #successMessage.show { opacity: 1; }
+
+/* --- BACK TO TOP BUTTON --- */
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 12px 18px;
+  border: none;
+  background: #00ffe7;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  display: none;
+  z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#backToTop:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ffe7;
+}
+
+/* --- FLOATING SHAPES --- */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  background: #00ffe7;
+  animation: float 15s linear infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-50px) translateX(50px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* --- FADE IN ANIMATION --- */
+@keyframes fadeIn { to { opacity: 1; } }

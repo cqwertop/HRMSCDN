@@ -6,6 +6,12 @@
 <title>Projects - Coding Club</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* Simple project filter buttons */
+  #filterButtons { text-align:center; margin-bottom:30px; }
+  #filterButtons button { margin:5px; background: #00ffe7; color:#000; font-weight:600; border-radius:6px; padding:8px 15px; border:none; cursor:pointer; transition:0.3s; }
+  #filterButtons button:hover{ transform:scale(1.05); box-shadow:0 0 15px #00ffe7; }
+</style>
 </head>
 <body>
 
@@ -16,25 +22,35 @@
   <a href="contact.html">Join</a>
 </nav>
 
-<div class="projects">
-  <div class="card">
-    <h3>Website Builder</h3>
-    <p>Beginner-friendly website tool with smooth animations and techy design.</p>
+<section>
+  <h2>Our Projects</h2>
+  <div id="filterButtons">
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('web')">Web</button>
+    <button onclick="filterProjects('game')">Games</button>
+    <button onclick="filterProjects('robotics')">Robotics</button>
   </div>
-  <div class="card">
-    <h3>Chat App</h3>
-    <p>Real-time chat app with modern UI, animated notifications, and responsive design.</p>
+  <div class="projects">
+    <div class="card web"><h3>Website Builder</h3><p>Build websites with smooth animations and modern UI.</p></div>
+    <div class="card game"><h3>Chat Game</h3><p>Fun mini-games with real-time chat features.</p></div>
+    <div class="card robotics"><h3>Robot Arm</h3><p>Hands-on robotics project with coding integration.</p></div>
+    <div class="card web"><h3>Portfolio Sites</h3><p>Member-built personal websites with creative designs.</p></div>
+    <div class="card game"><h3>JS Arcade</h3><p>Interactive arcade games coded by club members.</p></div>
   </div>
-  <div class="card">
-    <h3>Game Night</h3>
-    <p>Fun mini-games coded by the club with interactive JS features and animated graphics.</p>
-  </div>
-  <div class="card">
-    <h3>Robotics Projects</h3>
-    <p>Hands-on robotics projects with coding integration and smooth interface demos.</p>
-  </div>
-</div>
+</section>
+
+<button id="backToTop">⬆ Back to Top</button>
 
 <script src="js/main.js"></script>
+<script>
+function filterProjects(category){
+  const cards = document.querySelectorAll('.projects .card');
+  cards.forEach(c=>{
+    if(category==='all'){ c.style.display='block'; }
+    else if(c.classList.contains(category)){ c.style.display='block'; }
+    else{ c.style.display='none'; }
+  });
+}
+</script>
 </body>
 </html>
