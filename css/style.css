@@ -19,6 +19,7 @@ nav {
   z-index: 100;
 }
 nav a {
+  text-decoration: none;
   color: #00ffe7;
   font-weight: 600;
   transition: color 0.3s ease, text-shadow 0.3s ease;
