@@ -16,41 +16,88 @@ nav {
   background: rgba(0,0,0,0.4);
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 100;
 }
 nav a {
   color: #00ffe7;
   font-weight: 600;
-  text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-nav a:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #00ffe7;
+nav a:hover { 
+  color: #fff; 
+  text-shadow: 0 0 10px #00ffe7; 
+}
+
+/* --- HEADER --- */
+header {
+  text-align: center;
+  padding: 150px 20px;
+  position: relative;
+  z-index: 1;
+}
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+header p {
+  font-size: 1.2em;
+  opacity: 0;
+  animation: fadeIn 3s ease forwards;
+}
+button {
+  padding: 15px 30px;
+  margin-top: 30px;
+  border: none;
+  background: #00ffe7;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ffe7;
 }
 
 /* --- SECTIONS --- */
 section {
   max-width: 800px;
-  margin: 100px auto;
-  padding: 30px;
+  margin: 50px auto;
+  padding: 20px;
   background: rgba(0,255,231,0.05);
-  border-radius: 12px;
-  opacity: 0; /* scroll-trigger fade-in */
+  border-radius: 10px;
+  opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  position: relative;
-  z-index: 1;
 }
 
-/* --- CONTACT OVERRIDE --- */
-body.contact-page section {
-  opacity: 1;
-  transform: translateY(0);
+/* --- PROJECT CARDS --- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  padding: 50px;
 }
+.card {
+  background: rgba(0,255,231,0.05);
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #00ffe7;
+}
+.card h3 { color:#00ffe7; margin-top:0; }
+.card p { line-height:1.4; }
 
-/* --- FORM --- */
+/* --- CONTACT FORM --- */
 form {
+  max-width: 500px;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -101,7 +148,9 @@ input[type="submit"]:hover {
   font-weight: 600;
   cursor: pointer;
   border-radius: 8px;
-  z-index: 2;
+  display: none;
+  z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 #backToTop:hover {
   transform: scale(1.1);
@@ -115,10 +164,12 @@ input[type="submit"]:hover {
   opacity: 0.2;
   background: #00ffe7;
   animation: float 15s linear infinite;
-  z-index: 0; /* behind content */
 }
 @keyframes float {
   0% { transform: translateY(0) translateX(0); }
   50% { transform: translateY(-50px) translateX(50px); }
   100% { transform: translateY(0) translateX(0); }
 }
+
+/* --- FADE IN ANIMATION --- */
+@keyframes fadeIn { to { opacity: 1; } }
