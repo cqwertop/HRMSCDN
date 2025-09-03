@@ -47,15 +47,28 @@ document.querySelectorAll('button').forEach(btn=>{
   });
 });
 
-/* --- CONTACT FORM --- */
+/* --- CONTACT FORM (EmailJS Integrated) --- */
 const form=document.getElementById('contactForm');
+const successMsg=document.getElementById('successMessage');
+
 if(form){
+  // ✅ Init EmailJS
+  (function(){
+    emailjs.init("9qtUx-hXl_3qISvOg"); // Replace with your EmailJS Public Key
+  })();
+
   form.addEventListener('submit', e=>{
     e.preventDefault();
-    form.reset();
-    const msg=document.getElementById('successMessage');
-    msg.classList.add('show');
-    setTimeout(()=>{msg.classList.remove('show');},3000);
+
+    emailjs.sendForm("service_i6ml25q", "template_ev1ji8s", form)
+      .then(()=>{
+        successMsg.classList.add('show');
+        setTimeout(()=>{successMsg.classList.remove('show');},4000);
+        form.reset();
+      },(err)=>{
+        alert("❌ Failed to send message. Try again later.");
+        console.error("EmailJS Error:", err);
+      });
   });
 }
 

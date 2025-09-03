@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join - Coding Club</title>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join - Coding Club</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body class="contact-page">
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="projects.html">Projects</a>
-  <a href="contact.html">Join</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html" class="active">Join</a>
+  </nav>
 
-<section>
-  <h2>Join the Coding Club</h2>
-  <form id="contactForm">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <textarea placeholder="What excites you about coding?" rows="5" required></textarea>
-    <input type="submit" value="Submit">
-  </form>
-  <div id="successMessage">🎉 Thank you for joining! We'll reach out soon.</div>
-</section>
+  <section>
+    <h2>Join the Coding Club</h2>
+    <form id="contactForm">
+      <input type="text" name="user_name" placeholder="Your Name" required>
+      <input type="email" name="user_email" placeholder="Email Address" required>
+      <textarea name="message" placeholder="What excites you about coding?" rows="5" required></textarea>
+      <input type="submit" value="Submit">
+    </form>
+    <div id="successMessage">🎉 Thank you for joining! We'll reach out soon.</div>
+  </section>
 
-<button id="backToTop">⬆ Back to Top</button>
-<script src="js/main.js"></script>
+  <button id="backToTop">⬆ Back to Top</button>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
