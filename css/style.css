@@ -173,4 +173,5 @@ input[type="submit"]:hover {
   100% { transform: translateY(0) translateX(0); }
 }
 
-
+/* --- FADE IN ANIMATION --- */
+@keyframes fadeIn { to { opacity: 1; } }
