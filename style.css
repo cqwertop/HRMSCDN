@@ -5,10 +5,9 @@ body {
   padding: 0;
   background: #0f172a;
   color: #f8fafc;
-  animation: fadeIn 1s ease-in;
+  overflow-x: hidden;
 }
 
-/* Header */
 header {
   background: #1e293b;
   padding: 1rem;
@@ -37,14 +36,12 @@ nav a:hover {
   text-shadow: 0 0 5px #38bdf8, 0 0 10px #38bdf8;
 }
 
-/* Hero Section */
 .hero {
   text-align: center;
   padding: 3rem 1rem;
   animation: slideUp 1s ease-out;
 }
 
-/* About + Projects */
 .about, .projects {
   max-width: 800px;
   margin: 2rem auto;
@@ -68,19 +65,12 @@ nav a:hover {
   box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
   background: #1e293b;
   font-size: 0.9rem;
   margin-top: 3rem;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 @keyframes slideUp {
