@@ -1,4 +1,4 @@
-// script.js - particle background
+// Particle Background
 const canvas = document.getElementById("bgCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -46,3 +46,17 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
+// Typewriter Effect
+const heroText = "Welcome to Coding Club!";
+let index = 0;
+
+function typeWriter() {
+  if (index < heroText.length) {
+    document.getElementById("heroText").innerHTML += heroText.charAt(index);
+    index++;
+    setTimeout(typeWriter, 100);
+  }
+}
+
+typeWriter();
